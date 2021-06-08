@@ -1,0 +1,21 @@
+<link href="{{ asset('Front/js/Chart.js/Chart.min.js') }}">
+<link href="{{ asset('Front/js/Chart.bundle.js/Chart.bundle.min.js') }}">
+
+<canvas id="chart1" style="display: block; width: 723px; height: 361px;" width="1446" height="722" class="chartjs-render-monitor"></canvas>
+<script>
+    let ctx =document.getElementById('chart1').getContext('2d');
+    let data={
+        labels:['1','2','3','4'],
+        datasets:[{
+            data:[10,30,20,50]
+        }]
+    };
+    let option;
+    let config={
+        type:'line',
+        data:data,
+        option:option
+
+    };
+    let chart1=new Chart(ctx, config)
+</script>

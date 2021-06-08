@@ -1,0 +1,16 @@
+
+{% block title%}  {% endblock%}
+
+{% block body%}
+    <strong> Liste des Medecins </strong>
+    <table border = "1"> <tr> <td> CIN </td> <td> Nom </td> <td> Prenom </td>  <td> Specialite </td> <td> Image </td> <td> Action </td></tr>
+        {% for m in medecin%}
+            <tr> <td> {{m.cin}} </td> <td> {{m.nom}} </td> <td> {{m.prenom}} </td> <td> {{m.specialite}} </td> <td> <img src="{{ asset('Upload/')}}{{ m.nomfile }}" width="100" class="img-circle" /></td>
+                <td><a href="{{ path('SupprimerMedecin',{'id':m.cin}) }}">Supprimer</a></td>
+                <td><a href="{{ path('SupprimerMedecin',{'id':m.cin}) }}">Supprimer</a></td>
+
+            </tr>
+
+        {% endfor%}
+    </table>
+{% endblock%}

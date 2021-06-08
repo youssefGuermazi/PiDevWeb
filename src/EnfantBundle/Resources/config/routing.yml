@@ -1,0 +1,42 @@
+enfant_homepage:
+    path:     /
+    defaults: { _controller: EnfantBundle:Default:index }
+ajout:
+    path:     /ajout
+    defaults: { _controller: EnfantBundle:Default:Ajout }
+modifier:
+    path:     /modifier/{id}
+    defaults: { _controller: EnfantBundle:Default:Modifier }
+afficher:
+    path:     /Afficher/{id}
+    defaults: { _controller: EnfantBundle:Default:Afficher }
+AfficherResponsable:
+    path:     /AfficherResponsable
+    defaults: { _controller: EnfantBundle:Default:AfficherResponsable }
+afficherSuiviEnfant:
+    path:     /suivi/{id}
+    defaults: { _controller: EnfantBundle:Default:AfficherSuiviEnfant }
+ajoutsuivi:
+    path:     /ajoutSuivi
+    defaults: { _controller: EnfantBundle:Default:AjoutSuivi }
+suppression:
+    path:     /supprimer/{id}
+    defaults: { _controller: EnfantBundle:Default:Suppression }
+suppressionRes:
+    path:     /supprimer/{id}
+    defaults: { _controller: EnfantBundle:Default:SuppressionRes }
+afficherSuiviResponsable:
+    path:     /affichesuivi
+    defaults: { _controller: EnfantBundle:Default:AfficherSuiviResponsable }
+modifierSuivi:
+    path:     /modifiersuivi/{id}
+    defaults: { _controller: EnfantBundle:Default:ModifierSuivi }
+suppressionsuivi:
+    path:     /supprimersuivi/{id}
+    defaults: { _controller: EnfantBundle:Default:SuppressionSuivi }
+pdf:
+    path:     /pdf/{id}
+    defaults: { _controller: EnfantBundle:Default:pdf }
+chart:
+    path:     /chart
+    defaults: { _controller: EnfantBundle:Default:chart }

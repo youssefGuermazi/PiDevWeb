@@ -1,0 +1,18 @@
+{% extends '@Club/Default/layoutBack.html.twig' %}
+
+{% block body %}
+                        <h2>Ajout Evenement</h2>
+
+<h3 style="color :#e83e8c">
+    {{ form_start(form) }}
+
+    {{ form_widget(form.nom,{  'attr': {'class':'form-control mb-3','placeholder': placeholder|default('NOM')} }) }}
+    {{ form_widget(form.description,{'placeholder':'des', 'attr': {'class':'form-control','placeholder': placeholder|default('DSCRIPTION')} }) }}
+
+    {{ form_widget(form.dateDebut,{'label':'Date DABUT', 'attr': {'class':'form-control mb-3','placeholder': placeholder|default('DATE_DEBUT')}}) }}
+    {{ form_widget(form.dateFin,{'label':'Date FIN', 'attr': {'class':'form-control','placeholder': placeholder|default('DATE_FIN')}}) }}
+    {{ form_widget(form.Club,{'placeholder':'club', 'attr': {'class':'form-control mb-3'} }) }}
+    {{ form_widget(form.file,{'placeholder':'file', 'attr': {'class':'form-control mb-3'} }) }}
+    {{ form_widget(form.ajouter,{'label':'ajouter', 'attr': {'class':'btn btn-primary'}}) }}
+    {{ form_end(form) }}</h3>
+{% endblock %}

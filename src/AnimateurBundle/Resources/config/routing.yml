@@ -1,0 +1,56 @@
+animateur_homepage:
+    path:     /
+    defaults: { _controller: AnimateurBundle:Default:index }
+
+AjoutAnimateur:
+    path:     /responsable/AjoutAnimateur
+    defaults: { _controller: AnimateurBundle:Animateur:AddAnimateur }
+Animateur_Affiche:
+    path:     /responsable/AfficheAnimateur
+    defaults: { _controller: AnimateurBundle:Animateur:ListAnimateur }
+
+Suprimer_Animateur:
+    path:     /responsable/Suprimer/{id}
+    defaults: { _controller: AnimateurBundle:Animateur:delete }
+
+
+details_Animateur:
+    path:     /responsable/details/{id}
+    defaults: { _controller: AnimateurBundle:Animateur:details }
+
+Ajouter_formation:
+    path:     /responsable/AjouterFormation
+    defaults: { _controller: AnimateurBundle:Formation:AddFormation }
+
+
+AffecterFormation:
+    path:     /responsable/AjouterFormation/{id}
+    defaults: { _controller: AnimateurBundle:Animateur:details }
+
+Formaton_Affiche:
+    path:     /responsable/AfficheFormation
+    defaults: { _controller: AnimateurBundle:Formation:ListFormation }
+
+Formaton_Suprime:
+    path:     /responsable/Suprime/{id}
+    defaults: { _controller: AnimateurBundle:Formation:Supprime }
+
+Animateur_Modifier:
+    path:     /responsable/AfficheAnimateur/{cin}
+    defaults: { _controller: AnimateurBundle:Animateur:editAnimateur }
+
+Formateur_Modifier:
+    path:     /responsable/AfficheFormateur/{id}
+    defaults: { _controller: AnimateurBundle:Formation:editformateur }
+
+Animateur_Front_Affiche:
+    path:     /front/AfficheAnimateur
+    defaults: { _controller: AnimateurBundle:Animateur:ListAnimateurFront }
+
+Animateur_Front_Details:
+    path:     /front/AfficheDetailsAnimateur/{id}
+    defaults: { _controller: AnimateurBundle:Animateur:detailsFrontAnimateur }
+
+rate_:
+    path:     /front/rate
+    defaults: { _controller: AnimateurBundle:Animateur:rate}

@@ -1,0 +1,10 @@
+{% extends '@Club/Default/layoutFront.html.twig' %}
+{% block body %}
+    {{ form_widget(form.nom,{  'attr': {'class':'form-control mb-3','placeholder': placeholder|default('NOM')} }) }}
+    {{ form_widget(form.prenom,{'placeholder':'Nom', 'attr': {'class':'form-control mb-3','placeholder': placeholder|default('PRENOM')} }) }}
+    {{ form_widget(form.garderie,{  'attr': {'class':'form-control mb-3','placeholder': placeholder|default('Garderie')} }) }}
+    {{ form_widget(form.dn,{'label':'Date Naissance', 'attr': {'class':'form-control mb-3'}}) }}
+    {{ form_widget(form.file) }}
+    {{ form_widget(form.ajouter,{'label':'Modifier', 'attr': {'class':'btn btn-primary'}}) }}
+    {{ form_end(form) }}
+{% endblock %}

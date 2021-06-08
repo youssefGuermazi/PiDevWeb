@@ -1,0 +1,42 @@
+{% extends '@Club/Default/layoutFront.html.twig' %}
+
+{% block body %}
+
+    <h2 style="color : #df8a13">Rechercher des Evenements</h2>
+    <h3>
+        <table border=5 >
+            <tr style="color : #df8a13">
+                {{ form(f,{'attr':{'nom':'nom'}}) }}
+
+
+            </tr>
+            {% for e in c %}
+                <tr style="color :#00a6b2">
+                    <td>Nom  </td>
+                    <td>Description </td>
+                    <td>Date debut </td>
+                    <td>Date fin </td>
+                </tr>
+                <tr style="color: #fff3cd">
+                    <td >{{ e.nom }} </td>
+                    <td>{{ e.description }}</td>
+                    <td>{{ e.dateDebut|date('d/m/Y') }}</td>
+                    <td>{{ e.dateFin|date('d/m/Y') }}</td>
+                    <td><img src="{{ asset('Upload/')}}{{ e.nomfile }}" width="200" class="img-circle" /></td>
+                    {% if e.nbp > 0 %}
+                        {% if app.user in e.participants %}
+                            <td ><a style="color: #722523" href="{{ path('participer',{'id':e.id , 'etat':'refuser'}) }}">Annuler</a></td>
+                        {% else %}
+                            <td ><a style="color: #0e7609 " href="{{ path('participer',{'id':e.id , 'etat':'accepter'}) }}">Participe</a></td>
+
+                        {% endif %}
+                    {% else %}
+                        <td style="color: #1d0202"> Complet </td>
+                    {% endif %}
+                </tr>
+
+
+            {% endfor %}
+        </table>
+    </h3>
+{% endblock %}

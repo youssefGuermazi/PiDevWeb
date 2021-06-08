@@ -1,0 +1,48 @@
+garderie_homepage:
+    path:     /
+    defaults: { _controller: GarderieBundle:Default:index }
+garderie_ajout:
+    path:     /ajout
+    defaults: { _controller: GarderieBundle:Default:ajoutgarderie }
+garderie_affiche:
+    path:     /affiche
+    defaults: { _controller: GarderieBundle:Default:Afficher }
+garderie_del:
+    path:     /del/{id}
+    defaults: { _controller: GarderieBundle:Default:Delete }
+garderie_Update:
+    path: /Update/{id}
+    defaults: {_controller: GarderieBundle:Default:Update}
+garderie_ajoutresponsable:
+    path:     /ajoutresponsable
+    defaults: { _controller: GarderieBundle:Default:ajoutresponsable }
+garderie_afficheresponsable:
+    path:     /afficheresponsable
+    defaults: { _controller: GarderieBundle:Default:AfficherResponsable }
+garderie_delresp:
+    path:     /delresp/{id}
+    defaults: { _controller: GarderieBundle:Default:DeleteResponsable }
+garderie_Updateresponsable:
+    path: /Updateresponsable/{id}
+    defaults: {_controller: GarderieBundle:Default:UpdateResponsable}
+garderie_map:
+    path:     /map
+    defaults: { _controller: GarderieBundle:Default:map }
+listEnfantAPayer:
+    path:     /listPayement
+    defaults: { _controller: GarderieBundle:Default:getListEnfantaPayer }
+listEnfantDejaPayer:
+    path:     /listDejaPayer
+    defaults: { _controller: GarderieBundle:Default:getListEnfantDejaPayer }
+payer:
+    path:     /payer/{id}
+    defaults: { _controller: GarderieBundle:Default:payer }
+
+validerPayement:
+    path:     /valider
+    defaults: { _controller: GarderieBundle:Default:validerPayement }
+garderie_affichef:
+    path:     /affichegarderie
+    defaults: { _controller: GarderieBundle:Default:AfficherG }
+
+

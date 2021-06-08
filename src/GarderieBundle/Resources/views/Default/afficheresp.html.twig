@@ -1,0 +1,30 @@
+{% extends '@Club/Default/layoutBack.html.twig' %}
+{% block body %}
+    <h4>
+<table  border='1'>
+    <tr style="color: #f78a09"><th >cin</th>
+        <th>nom</th>
+        <th>prenom</th>
+        <th>supprimer</th>
+        <th>modifier</th>
+
+    </tr>
+
+    {% for r in Responsable %}
+
+
+        <tr style="color: #1e7e34"><td>{{ r.cin }}</td>
+            <td>{{r.nom}}</td>
+            <td>{{r.prenom}}</td>
+            <td><a href="{{ path('garderie_delresp',{'id':r.cin}) }}">Supprimer</a></td>
+            <td><a href="{{ path('garderie_Updateresponsable',{'id':r.cin}) }}">Modifier</a></td>
+
+
+        </tr>
+
+
+
+    {% endfor %}
+</table>
+    </h4>
+    {% endblock %}

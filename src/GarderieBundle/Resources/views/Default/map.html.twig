@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8"> <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+                                 integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+                                 crossorigin="">
+    <link rel="stylesheet"
+          href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <title>Simple Markers</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    {% block body %}
+        <div id="map" style="width: 520px; height: 550px"></div>
+        <input id="adress">
+        <script>
+            // Creating map options
+            var mapOptions = {
+                center: [36.81897, 10.16579],
+                zoom: 5
+            }
+            // Creating a map object
+            var map = new L.map('map', mapOptions);
+
+            // Creating a Layer object
+            var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+            // Adding layer to the map
+            map.addLayer(layer);
+
+
+            var popup = L.popup();
+            var newMarker;
+            function onMapClick(e) {
+                if (newMarker) { // check
+                    map.removeLayer(newMarker); // remove
+                    // map.removeControl(newMarker); // remove
+                }
+                newMarker = new L.marker(e.latlng).addTo(map);
+                $.get("https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat="+e.latlng.lat+"&lon="+e.latlng.lng, function(data, status){
+                    alert("Data: " + data.display_name + "\nStatus: " + status);
+
+                    document.getElementById("adress").value=data.address.country+", "+data.address.state;
+                   // document.getElementById("ad:location").value=data.address.country+", "+data.address.state;
+                });
+            }
+
+            map.on('click', onMapClick);
+
+        </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.min.js"></script>
+{% endblock %}
+
+</body>
+</html>

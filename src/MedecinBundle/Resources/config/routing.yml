@@ -1,0 +1,44 @@
+medecin_homepage:
+    path:     /
+    defaults: { _controller: MedecinBundle:Default:index }
+
+AjouterMedecin:
+    path:     /admin/AjoutMedecin
+    defaults: { _controller: MedecinBundle:Medecin:AjoutMedecin }
+
+AfficherMedecin:
+    path:     /admin/AfficherMedecin
+    defaults: { _controller: MedecinBundle:Medecin:Affiche }
+
+SupprimerMedecin:
+    path:     /admin/SupprimerMedecin/{id}
+    defaults: { _controller: MedecinBundle:Medecin:delete }
+
+AjouterInfo:
+    path:     /admin/AjouterInfo
+    defaults: { _controller: MedecinBundle:InfoSante:AjoutInfo }
+
+InfoMedecin:
+    path:     /admin/InfoMedecin/{id}
+    defaults: { _controller: MedecinBundle:InfoSante:detailsMedecin }
+DeleteInfo:
+    path:     /admin/Delete/{id}
+    defaults: { _controller: MedecinBundle:InfoSante:deleteInfo }
+
+Modifier_Medecin:
+    path:     /admin/Medecin/{id}
+    defaults: { _controller: MedecinBundle:Medecin:ModifierMedcin }
+
+Modifier_Info:
+    path:     /admin/Info/{id}/{idc}
+    defaults: { _controller: MedecinBundle:InfoSante:ModifierInfoSante }
+
+AfficherMedecin_Front:
+    path:     /Front/AfficherMedecinFront
+    defaults: { _controller: MedecinBundle:Medecin:AfficheMedecinFront }
+AfficherMedecinDetails_Front:
+    path:     /Front/AfficherDetailsMedecinFront/{id}
+    defaults: { _controller: MedecinBundle:Medecin:detailsMedecinFront}
+recherche:
+    path:     /recherche
+    defaults: { _controller: MedecinBundle:Medecin:recherche }

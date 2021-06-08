@@ -1,0 +1,44 @@
+{% extends '@Club/Default/layoutFront.html.twig' %}
+
+{% block body %}
+    <style>
+        table {
+            width:100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        table#t01 tr:nth-child(even) {
+            background-color: #cbcbcb;
+        }
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        table#t01 th {
+            background-color: #ffbc3b;
+            color: white;
+        }
+    </style>
+{% set i = 1 %}
+<table border="1" id="t01">
+    <tr><th>Id</th><th>Note_anglais</th><th>Note_francais</th><th>Note_info</th><th>Date</th><th>Evaluation</th></tr>
+    {% for e in suivi %}
+
+        <tr><td>{{i }}</td>
+            <td>{{ e.noteAnglais }}</td>
+            <td>{{ e.notefrancais }}</td>
+            <td>{{ e.noteinfo }}</td>
+            <td>{{ e.date|date('Y-m-d') }}</td>
+            <td>{{ e.evaluation }}</td>
+            <td><a href="{{path('pdf',{'id':e.enfant.id})}}">pdf</a> </td>
+        </tr>
+        {% set i = i+1 %}
+    {% endfor %}
+</table>
+
+{% endblock %}

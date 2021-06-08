@@ -1,0 +1,72 @@
+{% extends '@Club/Default/layoutBack.html.twig' %}
+{% block body %}
+
+    <section class="wrapper site-min-height">
+
+        <h3><i class="fa fa-angle-right"></i> Liste enfant déjà payer</h3>
+        <div class="row mt">
+            <div class="col-lg-12">
+                <div class="row mt">
+                    <div class="form-panel">
+                        <div class="form">
+                            {% if listEnfant |length >0 %}
+                                {% for key,enfant in listEnfant %}
+                                    <span>
+ <fieldset>
+<legend>Enfant {{ key +1 }}</legend>
+                            <div class="form-group ">
+
+                                <label for="nom" class="control-label col-lg-2">NOM:</label>
+                                {{ enfant.nom }}
+
+                            </div>
+                            <div class="form-group ">
+
+                                <label for="prenom" class="control-label col-lg-2">PRENOM:</label>
+                                {{ enfant.prenom }}
+                            </div>
+                            <div class="form-group ">
+                                 <label for="nomfile" class="control-label col-lg-2">IMAGE:</label>
+                                <img src="{{ asset('Upload/'~ enfant.nomfile) }}" width="150" height="150">
+                            </div>
+
+
+
+                                <div class="form-group ">
+                                    <label for="nomfile" class="control-label col-lg-2">DUREE:</label>
+                                    <h5> payé jusqu'à {{ payement[key].date |date('Y-m-d') }} </h5>
+                                </div>
+
+ </fieldset>
+                                </span>
+                                    <br>
+                                    <br>
+                                    <br>
+                                {% endfor %}
+                            {% else %}
+                                <h5> Pas d'enfant déja payé </h5>
+                            {% endif %}
+
+
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /wrapper -->
+
+
+    <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="lib/jquery.ui.touch-punch.min.js"></script>
+    <script class="include" type="text/javascript" src="lib/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="lib/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--common script for all pages-->
+    <!--script for this page-->
+
+
+{% endblock %}

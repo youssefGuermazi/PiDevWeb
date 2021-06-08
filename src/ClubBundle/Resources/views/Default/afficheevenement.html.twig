@@ -1,0 +1,100 @@
+{% extends '@Club/Default/layoutBack.html.twig' %}
+{% block body %}
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <!------ Include the above in your HEAD tag ---------->
+
+
+
+
+    <h3><i class="fa fa-angle-right"></i> Liste des Evenements </h3>
+    <div class="row mb">
+        <div class="d-flex justification-content-center h-100">
+            <form method="post">
+                <div class="searchbar">
+                    <input class="search_input" type="text" name="name " placeholder=" Search ... " id="myInput">
+                    <a href="#" class="search_icon" value="recherche"></a>
+                </div>
+            </form>
+        </div>
+
+    <div class="adv-table">
+    <table id="myTable" cellpadding="0" cellspacing="0" border="0" class="display table table-bordered">
+
+    <thead>
+    <tr>
+
+        <th>NOM</th>
+        <th class="hidden-phone">DESCRIPTION</th>
+        <th class="hidden-phone">DATE DEBUT</th>
+        <th class="hidden-phone">DATE FIN</th>
+        <th>CLUB</th>
+    </tr>
+    </thead>
+
+    <tbody id="myTable">
+    {% for e in evenement %}
+        <tr class="gradeX" id="{{ e.id }}">
+            <td>{{ e.nom }}</td>
+            <td>{{ e.description }}</td>
+            <td class="hidden-phone">{{ e.dateDebut|date('d/m/Y') }}</td>
+            <td class="hidden-phone">{{ e.dateFin|date('d/m/Y') }}</td>
+            <td class="center hidden-phone">{{ e.club.nom }}</td>
+            <td class="center hidden-phone"><img src="{{ asset('Upload/') }}{{ e.nomfile }}"
+                                                 width="100" class="img-circle"/></td>
+            <td><a href="{{ path('suppevent',{'id':e.id}) }}" class="btn btn-danger btn-xs"><i
+                            class="fa fa-trash-o "></i>Supprimer</a>
+                <a href="{{ path('Updateevent',{'id':e.id}) }}"
+                   class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Modifier</a><br><br>
+               </td>
+            <br>
+
+        </tr>
+    {% endfor %}
+
+
+    </tbody>
+    </table>
+    </div>
+    </div>
+    <!-- page end-->
+    </div>
+    <!-- /row -->
+
+    <!-- /wrapper -->
+
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+
+    <!--footer end-->
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" language="javascript"
+            src="{{ asset('Back/lib/advanced-datatable/js/jquery.js') }}"></script>
+    <script type="text/javascript" language="javascript"
+            src="{{ asset('Back/lib/advanced-datatable/js/jquery.dataTables.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('Back/lib/advanced-datatable/js/DT_bootstrap.js') }}"></script>
+    <script src="{{ asset ('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') }}"></script>
+
+    <!--common script for all pages-->
+
+    <!--script for this page-->
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+
+    <div class="text-center">{{ knp_pagination_render(evenement) }}</div>
+
+{% endblock %}

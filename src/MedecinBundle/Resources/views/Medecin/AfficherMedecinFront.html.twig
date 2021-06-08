@@ -1,0 +1,105 @@
+{% extends '@Club/Default/layoutFront.html.twig' %}
+{% block body %}
+
+
+<!-- banner-feature -->
+
+<!-- /banner-feature -->
+
+<!-- about us -->
+
+<!-- /about us -->
+
+<!-- courses -->
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center section-title justify-content-between">
+                    <h2 class="mb-0 text-nowrap mr-3">Nos Medecins</h2>
+                    <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+
+                </div>
+            </div>
+        </div>
+        <!-- course list -->
+        <div class="row justify-content-center">
+            <!-- course item -->
+            {% for m in medecin %}
+
+                <div class="col-lg-4 col-sm-6 mb-5">
+                <div class="card p-0 border-primary rounded-0 hover-shadow">
+                    <img class="card-img-top rounded-0" src="{{ asset('Upload/')}}{{ m.nomfile }}" alt="course thumb">
+                    <div class="card-body">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a class="text-color" href="#">{{m.nom}}</a></li>
+                        </ul>
+                        <a href="course-single.html">
+                            <h4 class="card-title">{{m.specialite}} </h4>
+                        </a>
+
+                        <a href="{{ path('AfficherMedecinDetails_Front',{'id':m.cin}) }}" class="btn btn-primary btn-sm">Info</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- course item -->
+
+        </div>
+        <!-- /course list -->
+        <!-- mobile see all button -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="courses.html" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">sell all</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /courses -->
+
+<!-- cta -->
+
+<!-- /cta -->
+
+<!-- success story -->
+
+<!-- /success story -->
+
+<!-- events -->
+
+<!-- event -->
+
+<!-- event -->
+
+<!-- event -->
+
+<!-- location -->
+
+<!-- mobile see all button -->
+
+<!-- /events -->
+
+<!-- teachers -->
+
+<!-- teacher -->
+
+<!-- teacher -->
+
+<!-- /teachers -->
+
+<!-- blog -->
+
+<!-- blog post -->
+
+<!-- blog post -->
+
+<!-- post meta -->
+<!-- author -->
+
+<!-- blog post -->
+
+<!-- /blog -->
+
+<!-- footer -->
+{% endblock%}

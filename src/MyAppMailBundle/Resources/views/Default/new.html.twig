@@ -1,0 +1,21 @@
+{% extends '@Club/Default/layoutFront.html.twig' %}
+{% block body %}
+    <body>
+    <h2 style="color: #f78a09"> <strong> Formulaire De Contact</strong> </h2>
+    <hr>
+
+    <p>{{form_errors(form)}}</p>
+    <hr>
+    <form role="form" name="test" id="fr" method="POST" action='{{path('my_app_mail_sendpage')}}' >
+        {{ form_start(form) }}
+
+        {{ form_widget(form.tel,{  'attr': {'class':'form-control mb-3','placeholder': placeholder|default('TELEPHONE')} }) }}
+        {{ form_widget(form.nom,{'placeholder':'Nom', 'attr': {'class':'form-control mb-3','placeholder': placeholder|default('OBJET')} }) }}
+        {{ form_widget(form.txt,{  'attr': {'class':'form-control mb-3','placeholder': placeholder|default('Rédiger votre messsage')} }) }}
+        {{ form_widget(form.mail,{  'attr': {'class':'form-control mb-3','placeholder': placeholder|default('votre email')} }) }}
+        {{ form_widget(form.envoyer,{'label':'envoyer', 'attr': {'class':'btn btn-primary'}}) }}
+        {{ form_end(form) }}
+
+    </form>
+    </body>
+{% endblock %}

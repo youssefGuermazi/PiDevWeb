@@ -1,0 +1,33 @@
+medecin:
+    resource: "@MedecinBundle/Resources/config/routing.yml"
+    prefix:   /
+
+animateur:
+    resource: "@AnimateurBundle/Resources/config/routing.yml"
+    prefix:   /
+
+my_app_mail:
+    resource: "@MyAppMailBundle/Resources/config/routing.yml"
+    prefix:   /
+
+garderie:
+    resource: "@GarderieBundle/Resources/config/routing.yml"
+    prefix:   /
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+enfant:
+    resource: "@EnfantBundle/Resources/config/routing.yml"
+    prefix:   /enfant
+
+club:
+    resource: "@ClubBundle/Resources/config/routing.yml"
+    prefix:   /club
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

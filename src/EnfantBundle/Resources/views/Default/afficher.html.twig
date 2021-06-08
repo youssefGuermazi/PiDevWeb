@@ -1,0 +1,38 @@
+{% extends '@Club/Default/layoutFront.html.twig' %}
+{% block body %}
+    <style>
+        table {
+            width:100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        table#t01 tr:nth-child(even) {
+            background-color: #cbcbcb;
+        }
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        table#t01 th {
+            background-color: #ffbc3b;
+            color: white;
+        }
+    </style>
+<table border="1" id="t01">
+    <tr ><th>Image</th><th>Id</th><th>Nom</th><th>Prenom</th><th>Date Naissance</th><th colspan="3"></th></tr>
+    {% for e in enfants %}
+        <tr >
+            <td><img src="{{ asset('Upload/')}}{{ e.nomfile }}" width="100" class="img-circle" /></td>
+            <td>{{ e.id }}</td><td>{{ e.nom }}</td><td>{{ e.prenom }}</td><td>{{ e.dn|date('Y-m-d') }}</td>
+            <td><a href="{{path('afficherSuiviEnfant',{'id':e.id})}}">suivi</a> </td>
+            <td><a href="{{path('modifier',{'id':e.id})}}">Modifier</a> </td>
+            <td><a href="{{path('suppression',{'id':e.id})}}">Supprimer</a> </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

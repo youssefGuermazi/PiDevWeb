@@ -1,0 +1,4 @@
+services:
+#    garderie.example:
+#        class: GarderieBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

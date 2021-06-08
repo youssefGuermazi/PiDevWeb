@@ -1,0 +1,42 @@
+club_homepage:
+    path:     /
+    defaults: { _controller: ClubBundle:Default:index }
+club:
+    path:     /ajoutclub
+    defaults: { _controller: ClubBundle:Default:AjoutClub }
+affichclub:
+    path:     /affichclub
+    defaults: { _controller: ClubBundle:Default:afficheClub }
+suppclub:
+    path:     /supprimerclub/{nom}
+    defaults: { _controller: ClubBundle:Default:supprimerClub }
+UpdateClub:
+    path:     /update/{nom}
+    defaults: { _controller: ClubBundle:Default:UpdateClub }
+ajoutevenement:
+    path:     /ajouteevent
+    defaults: { _controller: ClubBundle:Default:AjoutEvenement }
+affichevent:
+    path:     /affichevenement
+    defaults: { _controller: ClubBundle:Default:afficheEvenement }
+suppevent:
+    path:     /supprimerevenement/{id}
+    defaults: { _controller: ClubBundle:Default:supprimerEvenement }
+Updateevent:
+    path:     /updateevenement/{id}
+    defaults: { _controller: ClubBundle:Default:UpdateEvenement }
+afficheventfront:
+    path:     /affichevent
+    defaults: { _controller: ClubBundle:Default:afficheEvenementfront }
+affichclubfront:
+    path:     /afficheClub
+    defaults: { _controller: ClubBundle:Default:afficheClubfront }
+Rechercheclubfront:
+    path:     /rechercheClub
+    defaults: { _controller: ClubBundle:Default:rechercheClubfront }
+Rechercheeventfront:
+    path:     /rechercheevent
+    defaults: { _controller: ClubBundle:Default:rechercheeventfront }
+participer:
+    path:   /participer/{id}/{etat}
+    defaults: {_controller: ClubBundle:Default:participer}

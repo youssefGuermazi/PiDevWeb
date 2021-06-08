@@ -1,0 +1,12 @@
+{% extends '@Club/Default/layoutBack.html.twig' %}
+{% block body %}
+    <h4>
+        {{ form_start(form) }}
+        {{ form_row(form.cin,{'label':'cin du responsable    '}) }}
+        {{ form_row(form.nom,{'label':'nom du responsable '}) }}
+        {{ form_row(form.prenom,{'label':'prenom du responsable'}) }}
+
+        {{ form_widget(form.ajouter,{'label':'ajouter'}) }}
+        {{ form_end(form) }}
+    </h4>
+{% endblock %}

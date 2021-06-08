@@ -1,0 +1,118 @@
+{% extends '@Club/Default/layoutFront.html.twig' %}
+{% block body %}
+
+
+<!-- banner-feature -->
+
+<!-- /banner-feature -->
+
+<!-- about us -->
+
+<!-- /about us -->
+
+<!-- courses -->
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center section-title justify-content-between">
+                    <h2 class="mb-0 text-nowrap mr-3">les évenements</h2>
+                    <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+
+                </div>
+            </div>
+        </div>
+        <!-- course list -->
+        <div class="row justify-content-center">
+                {% for e in evenement %}
+
+                    <div class="col-lg-4 col-sm-6 mb-5">
+                        <div class="card p-0 border-primary rounded-0 hover-shadow">
+                            <img class="card-img-top rounded-0" src="{{ asset('Upload/')}}{{ e.nomfile }}" alt="course thumb">
+                            <div class="card-body">
+                                <ul class="list-inline mb-2">
+
+                                    <h4 class="card-title">{{ e.nom }} </h4>
+                                    <h4 class="card-title">{{e.description }} </h4>
+
+                                    <h4 class="card-title">{{ e.dateDebut|date('d/m/Y') }} </h4>
+                                    <h4 class="card-title">{{ e.dateFin|date('d/m/Y') }}</h4>
+                                    <h4 class="card-title">{{ e.club.nom }}</h4>
+                                {% if e.nbp > 0 %}
+                                    {% if app.user in e.participants %}
+                                        <td ><a style="color: #722523" href="{{ path('participer',{'id':e.id , 'etat':'refuser'}) }}">Annuler</a></td>
+                                    {% else %}
+                                        <td ><a style="color: #0e7609 " href="{{ path('participer',{'id':e.id , 'etat':'accepter'}) }}">Participe</a></td>
+
+                                    {% endif %}
+                                {% else %}
+                                    <td style="color: #1d0202"> Complet </td>
+                                {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+<div class="text-center">{{ knp_pagination_render(evenement) }}</div>
+
+
+            <!-- course item -->
+
+        </div>
+        <!-- /course list -->
+        <!-- mobile see all button -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="courses.html" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">sell all</a>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- /courses -->
+
+    <!-- cta -->
+
+    <!-- /cta -->
+
+    <!-- success story -->
+
+    <!-- /success story -->
+
+    <!-- events -->
+
+    <!-- event -->
+
+    <!-- event -->
+
+    <!-- event -->
+
+    <!-- location -->
+
+    <!-- mobile see all button -->
+
+    <!-- /events -->
+
+    <!-- teachers -->
+
+    <!-- teacher -->
+
+    <!-- teacher -->
+
+    <!-- /teachers -->
+
+    <!-- blog -->
+
+    <!-- blog post -->
+
+    <!-- blog post -->
+
+    <!-- post meta -->
+    <!-- author -->
+
+    <!-- blog post -->
+
+    <!-- /blog -->
+
+    <!-- footer -->
+{% endblock%}

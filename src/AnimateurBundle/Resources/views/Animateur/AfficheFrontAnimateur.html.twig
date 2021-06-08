@@ -1,0 +1,143 @@
+{% extends '@Club/Default/layoutFront.html.twig' %}
+{% block body %}
+<head>
+    <script src="https://use.fontawesome.com/9fb4b83f9f.js"></script>
+
+    <!-- Main Stylesheet -->
+    <link href="{{ asset('Front/css/style.css') }}" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+    <style>
+        .mystar{
+            font-size: 25px !important;
+            color: #f9d933 !important;
+        }
+    </style>
+
+</head>
+
+->
+
+<!-- banner-feature -->
+
+<!-- /banner-feature -->
+
+<!-- about us -->
+
+<!-- /about us -->
+
+<!-- courses -->
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center section-title justify-content-between">
+                    <h2 class="mb-0 text-nowrap mr-3">Nos Animateurs</h2>
+                    <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+                </div>
+            </div>
+        </div>
+        <!-- course list -->
+        <div class="row justify-content-center">
+            <!-- course item -->
+            {% for a in animateur %}
+
+                <div class="col-lg-4 col-sm-6 mb-5">
+                    <div class="card p-0 border-primary rounded-0 hover-shadow">
+                        <img class="card-img-top rounded-0" src="{{ asset('Upload/')}}{{ a.nomfile }}" alt="course thumb">
+                        <div class="card-body">
+                            <ul class="list-inline mb-2">
+                                <li class="list-inline-item"><a class="text-color" href="#">{{a.nom}}</a></li>
+                                <li class="list-inline-item"><a class="text-color" href="#">{{a.prenom}}</a></li>
+
+                            </ul>
+                            <a href="course-single.html">
+                                <h4 class="card-title">{{a.activiter}} </h4>
+                            </a>
+                            <div class="course-ratings">
+                                {% if a.rate < 1 %}
+                                    <i class="fa fa-star-o mystar" aria-hidden="true" ></i>
+                                    <i class="fa fa-star-o mystar" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o mystar " aria-hidden="true"></i>
+                                    <i class="fa fa-star-o mystar" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o mystar" aria-hidden="true"></i>
+                                {% elseif a.rate >= 1 %}
+                                    {% for i in 1..a.rate | round %}
+                                        <i class="fa fa-star mystar" aria-hidden="true"></i>
+                                    {% endfor %}
+                                {% else %}
+                                    <i class="fa fa-star-o mystar" aria-hidden="true" ></i>
+                                    <i class="fa fa-star-o mystar" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o mystar " aria-hidden="true"></i>
+                                    <i class="fa fa-star-o mystar" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o mystar" aria-hidden="true"></i>
+                                {% endif  %}
+                            </div>
+                            <a href="{{ path('Animateur_Front_Details',{'id':a.cin}) }}" class="btn btn-primary btn-sm">Info</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <!-- course item -->
+
+        </div>
+        <!-- /course list -->
+        <!-- mobile see all button -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="courses.html" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">sell all</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /courses -->
+
+<!-- cta -->
+
+<!-- /cta -->
+
+<!-- success story -->
+
+<!-- /success story -->
+
+<!-- events -->
+
+<!-- event -->
+
+<!-- event -->
+
+<!-- event -->
+
+<!-- location -->
+
+<!-- mobile see all button -->
+
+<!-- /events -->
+
+<!-- teachers -->
+
+<!-- teacher -->
+
+<!-- teacher -->
+
+<!-- /teachers -->
+
+<!-- blog -->
+
+<!-- blog post -->
+
+<!-- blog post -->
+
+<!-- post meta -->
+<!-- author -->
+
+<!-- blog post -->
+
+<!-- /blog -->
+
+<!-- footer -->
+{% endblock %}
